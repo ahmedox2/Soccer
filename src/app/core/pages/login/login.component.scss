@@ -1,0 +1,43 @@
+.tt-navbar__logo-icon {
+    background: #2af5a7;
+    color: #181f25;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tt-navbar__logo-text {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .tt-navbar__logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  *{
+    text-decoration: none !important;
+  }
+
+.btn-login-custom {
+  width: 100%;
+  height: 56px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  letter-spacing: 1px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.btn{
+    background-color: #2af5a7 !important;
+    color: black !important;
+}

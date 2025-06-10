@@ -1,0 +1,18 @@
+<div class="container-fluid mt-85 py-4">
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 " *ngFor="let club of clubs">
+      <div class="card bg-main club-card h-100" (click)="navigateToSquad(club)">
+        <div class="card-body d-flex align-items-center">
+          <img [src]="club.logo" [alt]="club.name" class="club-logo me-3">
+          <div>
+            <h3 class="club-name mb-1">{{club.name}}</h3>
+            <small class="text-muted">{{club.country}}</small>
+          </div>
+          <div class="ms-auto">
+            <i class="bi bi-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

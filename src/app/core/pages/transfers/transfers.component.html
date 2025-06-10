@@ -1,0 +1,43 @@
+<div class="transfer-table-container">
+  <table class="table table-hover transfer-table">
+    <thead>
+      <tr>
+        <th style="width: 400px">Player</th>
+        <th>Fee</th>
+        <th>From</th>
+        <th>Position</th>
+        <th>Contract</th>
+        <th>Market value</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transfer of transfers">
+        <td>
+          <div class="player-info">
+            <img [src]="transfer.img" [alt]="transfer.name" class="player-img">
+            <div class="player-details">
+              <div class="player-name">{{ transfer.name }}</div>
+              <div class="player-team">
+                <img src="https://st2.depositphotos.com/1915171/5351/v/450/depositphotos_53513801-stock-illustration-arrow-sign-icon-next-button.jpg" alt="arrow" class="arrow-icon" />
+                <img [src]="transfer.teamLogo" [alt]="transfer.team" class="team-logo">
+                <span>{{ transfer.team }}</span>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td class="fee">{{ transfer.fee }}</td>
+        <td class="from">
+          <div class="team-info">
+            <img [src]="getFromTeamLogo(transfer.from)" [alt]="transfer.from" class="team-logo">
+            <span>{{ transfer.from }}</span>
+          </div>
+        </td>
+        <td><span class="position">{{ transfer.position }}</span></td>
+        <td class="contract">{{ transfer.contract }}</td>
+        <td class="market-value">{{ transfer.marketValue }}</td>
+        <td class="date">{{ transfer.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,66 @@
+.table {
+  font-size: 14px;
+  
+  th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 12px 8px;
+  }
+
+  td {
+    padding: 12px 8px;
+    vertical-align: middle;
+  }
+}
+
+.badge {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+// Team positions highlighting
+tbody {
+  tr:nth-child(-n+4) {
+    td:first-child {
+      // color: #28a745; // Champions League spots
+      font-weight: bold;
+    }
+  }
+  
+  tr:nth-child(5) {
+    td:first-child {
+      color: #17a2b8; // Europa League spot
+      font-weight: bold;
+    }
+  }
+  
+  tr:nth-last-child(-n+3) {
+    td:first-child {
+      color: #dc3545; // Relegation spots
+      font-weight: bold;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .table {
+    font-size: 12px;
+    
+    th {
+      font-size: 11px;
+    }
+  }
+  
+  .badge {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+}

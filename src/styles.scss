@@ -1,0 +1,669 @@
+@import url("https://fonts.googleapis.com/css2?family=Freehand&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-dark-1: #3A59D1;
+  --color-dark-2: #3D90D7;
+  --color-light-1:#7AC6D2 ;
+  --color-light-2: #B5FCCD;
+}
+.signupform {
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+align-items: center;
+justify-content: center;
+}
+.bg-main{
+  background-color: var(--color-light-2) ;
+}
+
+.big-font{
+  font-size: 45px;
+}
+.mt-85{
+margin-top:85px ;
+}
+*{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(245, 245, 245, 1.0) !important;
+}
+
+
+
+.container{
+  height: 100%;
+  width: 100%;
+}
+
+
+.hero_content h4{
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.hero_content h2{
+  font-size: 3.75rem;
+  font-weight: 200;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#home .shape{
+  width: 35px;
+  height: 80px;
+  position: absolute;
+  bottom: 30px;
+  border: 2px solid white;
+  border-radius: 20px;
+  transform: translateX(-50%);
+  animation: updown 0.2s infinite;
+  animation-direction:alternate;
+}
+@keyframes updown{
+  0%{
+    bottom: 30px;
+  }
+  25%{
+    bottom: 35px;
+  }
+  75%{
+    bottom: 38px;
+  }
+  100%{
+    bottom: 42px;
+  }
+}
+#home .shape::after{
+  content: '';
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 5px;
+  height: 8px;
+  background-color: white;
+  transform: translateX(-50%);
+  border-radius: 15px;
+}
+
+
+.hero_content_world{
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 400;
+  transition: 0.3 ease;
+  animation: changewidth 7s 1s infinite ;
+}
+.hero_content_world::after{
+  content: 'larry';
+  animation: changeword 7s 1s ease infinite ;
+}
+@keyframes changewidth{
+  0%,30%,60%,100%{
+      width: 100%;
+      padding-right: 8px;
+  }
+  15%,45%,75%{
+      width: 0%;
+      padding-right: 0px;
+  }
+}
+
+@keyframes changeword{
+  0%,99%,100%{
+     content: 'Discover';
+  }
+  30%{
+      content: 'Managed';
+   }
+   60%{
+      content: 'Scaout';
+   }
+
+}
+// /* navbar */
+.navbar {
+  background-color: var(--color-dark-1) !important;
+}
+.navbar-logo{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #343434;
+
+}
+
+.nav-link.active::after{
+  width: 100%;
+
+}
+.nav-item{
+  font-size: 14px;
+  text-transform: capitalize;
+  padding-inline: 20px;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+
+  padding: 0;
+  color: #343434;
+  position: relative;
+}
+/* sittings  */
+.sittings{
+  position: fixed;
+  top: 20%;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-light-1);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.active {
+
+  // color: red !important;
+  border-radius: 5px;
+
+}
+
+// /* category */
+// #category{
+//   padding: 3rem 0rem;
+// }
+
+// .category_title {
+//   width: 100%;
+//   text-align: center;
+//   background-color: var(--color-dark-2);
+//   padding: 3rem 0rem;
+//   border-radius: 1rem;
+//   font-size: 2.5rem;
+//   font-weight: 800;
+
+// }
+
+// .category_img {
+//   width: 100%;
+// }
+
+// .one {
+//   margin-bottom: 1rem;
+// }
+
+// .two {
+//   margin-top: 1rem;
+// }
+
+// /* #category .category_container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 30px;
+// }
+
+// .category_item {
+//   position: relative;
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
+
+// .category_img {
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+// }
+
+// .category_title {
+//   font-size: 18px;
+//   font-weight: bold;
+//   position: absolute;
+//   bottom: 10px;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   color: white;
+//   background-color: rgba(0, 0, 0, 0.5);
+//   padding: 5px 15px;
+// } */
+
+
+
+// /* blog section */
+// #sports-article{
+//   margin-top: 10rem;
+//   background-color: var(--color-light-2);
+
+// }
+
+// /* subscribe */
+// /* #subscribe{
+//   padding: 3rem 0rem;
+//   background-color: var(--color-light-1);
+// }
+// .subscribe {
+//   width: 100%;
+//   background-image: url(../images/newsletter-bg.png);
+//   background-size: cover;
+//   padding-top: 8rem;
+//   padding: 6rem 3rem;
+
+//   .subscribe_text {
+//     font-size: 6rem;
+//     font-weight: 900;
+//     margin-bottom: 3rem;
+//   }
+
+// }
+
+// form {
+//   width: 30%;
+//   display: flex;
+//   align-items: center;
+// }
+
+// input {
+//   width: 80%;
+//   padding: 1.5rem;
+//   outline: none;
+//   border: 1px solid var(--color-dark-1);
+// }
+
+// .btn_subscribe {
+//   background-color: var(--color-dark-1);
+//   padding: 1.4rem 2rem;
+//   outline: none;
+//   border: none;
+//   color: var(--color-light-1);
+// } */
+
+
+// // #subscribe {
+// //   padding: 15rem 0;
+// //   background-image: url(../images/newsletter-bg.png);
+// //   background-size: cover;
+// //   background-position: center;
+// //   background-attachment: fixed;
+// //   text-align: center;
+// //   color: white; /* White text for contrast with dark backgrounds */
+// // }
+
+// .subscribe .subscribe_text {
+//   color: var(--color-dark-1);
+//   font-size: 4rem;
+//   font-weight: 700;
+//   margin-bottom: 90px;
+//   z-index: 1;
+//   position: relative;
+// }
+
+// .subscribe form {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 10px;
+//   z-index: 1;
+//   position: relative;
+// }
+
+// .subscribe input[type="text"] {
+//   padding: 15px;
+//   width: 400px;
+//   border: 2px solid #ccc;
+//   border-radius: 25px;
+//   font-size: 16px;
+//   z-index: 1;
+// }
+
+// .subscribe .btn_subscribe {
+//   padding: 12px 20px;
+//   background-color: #007bff;
+//   color: white;
+//   font-size: 18px;
+//   border-radius: 50%;
+//   text-decoration: none;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 1;
+// }
+
+// .subscribe .btn_subscribe:hover {
+//   background-color: #0056b3;
+// }
+// /* contact */
+// #contact .container{
+//   width: 70%;
+// }
+
+// .contact-icons{
+//   width: 70px;
+//   height: 70px;
+//   border-radius: 50%;
+//   background-color:var(--color-light-1);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   transition: 0.5s all;
+// }
+// .contactx:hover .contact-icons {
+//   background-color: black;
+//   color: white;
+
+// }
+
+// #contact form button:hover{
+//   background-color:burlywood;
+//   color: black;
+// }
+
+// /* footer */
+// footer {
+//   background-color: var(--color-dark-1);
+// }
+
+// .footer_text {
+//   padding: 2rem 0rem;
+//   text-align: center;
+//   background-color: var(--color-light-1);
+// }
+
+// @media (max-width: 1024px) {
+//   #clup-rancing .banner {
+//       height: 40vh; /* Reduce banner height for tablets */
+//   }
+
+//   #clup-rancing .banner_tag {
+//       font-size: 20px; /* Adjust text size for better visibility */
+//       top: 10px;
+//       left: 10px;
+//   }
+
+//   #clup-rancing .banner_title {
+//       font-size: 24px; /* Smaller font size on tablets */
+//   }
+
+//   #clup-rancing .banner_content p {
+//       font-size: 16px; /* Adjust body text size */
+//   }
+//   #trending-news .row {
+//     display: flex;
+//     flex-direction: column; /* Stack the cards vertically */
+// }
+
+// /* Make the trending_news_card_s stack vertically */
+// #trending-news .trending_news_card_s {
+//     flex-direction: column;
+// }
+
+// #trending-news .trending_news_s_img {
+//     width: 100%; /* Make the image take full width */
+//     height: auto;
+// }
+
+// #trending-news .trending_news_s_content {
+//     width: 100%;
+//     margin-left: 0; /* Remove left margin when stacked */
+// }
+
+// /* Adjust large image layout for tablets */
+// #trending-news .news_lgg {
+//     position: relative;
+//     height: 400px;
+// }
+
+// #trending-news .news_lg_content {
+//     position: absolute;
+//     bottom: 15px;
+//     left: 15px;
+//     font-size: 18px;
+// }
+// #home.hero {
+//   padding: 80px 20px;
+// }
+
+// .hero .hero_content {
+//   padding: 0 20px;
+// }
+
+// .hero .hero_content h4 {
+//   font-size: 24px;
+// }
+
+// .hero .hero_content h2 {
+//   font-size: 40px;
+// }
+
+// .hero_content_world {
+//   font-size: 50px;
+// }
+
+// .hero .btn {
+//   font-size: 16px;
+//   padding: 12px 24px;
+// }
+
+// .hero .shape {
+//   width: 40px;
+//   height: 40px;
+// }
+
+// #category .category_container {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 20px;
+// }
+
+
+// .category_item {
+// position: relative;
+// text-align: center;
+// margin-bottom: 20px;
+// width: 48%;
+// }
+
+// .category_img {
+// width: 100%;
+// height: auto;
+// object-fit: cover;
+// }
+
+// .category_title {
+// font-size: 16px;
+// font-weight: bold;
+// position: absolute;
+// bottom: 10px;
+// left: 50%;
+// transform: translateX(-50%);
+// color: white;
+// background-color: rgba(0, 0, 0, 0.5);
+// padding: 5px 10px;
+
+// }
+// .subscribe .subscribe_text {
+//   font-size: 28px;
+// }
+
+// .subscribe form {
+//   flex-direction: column;
+//   gap: 15px;
+// }
+
+// .subscribe input[type="text"] {
+//   width: 300px;
+//   padding: 12px;
+// }
+
+// .subscribe .btn_subscribe {
+//   padding: 10px 18px;
+//   font-size: 16px;
+// }
+
+// }
+@media (max-width: 768px) {
+  .league-stats-card,
+  .top-players-card,
+  .top-teams-card {
+    min-width: 95vw;
+    max-width: 98vw;
+    width: 98vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* -------- League Table -------- */
+.left-section {
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+.league-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.league-table th,
+.league-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.team-logo {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.league-table span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  font-size: 12px;
+  margin-right: 4px;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.win { background-color: #28a745; }
+.draw { background-color: #6c757d; }
+.loss { background-color: #dc3545; }
+
+/* -------- Team of the Week -------- */
+.right-section {
+  width: 38%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.team-pitch {
+  position: relative;
+  width: 100%;
+  padding-top: 140%; /* for fixed aspect ratio */
+  background-color: #008c4a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.player {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.player-img {
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.player-rating {
+  background-color: #10c98e;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.player-name {
+  font-size: 13px;
+  margin-top: 2px;
+}
+/* تحسين موضع الشريط */
+.team-column {
+  position: relative;
+  padding-left: 20px; /* لإبعاد النص عن الشريط */
+}
+
+/* شريط الألوان لأول 5 فرق */
+.rank-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px !important;
+  border-radius: 8px;
+}
+
+/* ألوان الفرق */
+.rank-1 .rank-indicator {
+  background-color: #00ff00; /* أخضر */
+}
+
+.rank-2 .rank-indicator {
+  background-color: #32cd32; /* أخضر غامق */
+}
+
+.rank-3 .rank-indicator {
+  background-color: #00bfff; /* أزرق سماوي */
+}
+
+.rank-4 .rank-indicator {
+  background-color: #1e90ff; /* أزرق غامق */
+}
+
+.rank-5 .rank-indicator {
+  background-color: #4169e1; /* أزرق ملكي */
+}
+.rank-6 .rank-indicator {
+  background-color: #4169e1; /* أزرق ملكي */
+}
+.pos-number{
+  color: black !important;
+}
+/* تحسين تنسيق الفرق */
+.team-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px; /* لإبعاد النص عن الشريط */
+}

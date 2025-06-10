@@ -1,0 +1,49 @@
+.club-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.coach-image, .player-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.player-card {
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+
+  .nav-link {
+    border: none;
+    color: #6c757d;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+
+    &.active {
+      color: #198754;
+      border-bottom: 2px solid #198754;
+      margin-bottom: -2px;
+    }
+
+    &:hover {
+      border-color: transparent;
+      color: #198754;
+    }
+  }
+}

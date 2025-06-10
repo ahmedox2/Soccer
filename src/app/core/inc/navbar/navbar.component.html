@@ -1,0 +1,64 @@
+<header class="tt-navbar" [ngClass]="{'tt-navbar--hidden': !showNavbar}">
+  <div class="tt-navbar__row1">
+    <div class="tt-navbar__container">
+      <div class="tt-navbar__left">
+        <button class="tt-navbar__burger" (click)="mobileMenuOpen = true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="tt-navbar__logo-link" routerLink="/">
+          <div class="tt-navbar__logo-group">
+            <div class="tt-navbar__logo-icon">SQ</div>
+            <span class="tt-navbar__logo-text">SOCCERIQ</span>
+          </div>
+        </a>
+        <span class="tt-navbar__divider"></span>
+        <span class="tt-navbar__network"><b>Soccer IQ - </b>Insight Beyond the Scoreline</span>
+      </div>
+      <div class="tt-navbar__right">
+        <span class="tt-navbar__notif"><i class="fa fa-bell"></i></span>
+        <button class="tt-navbar__signup" routerLink="/register">Sign Up</button>
+        <button class="tt-navbar__login" routerLink="/login">Login</button>
+      </div>
+    </div>
+  </div>
+  <div class="tt-navbar__row2">
+    <div class="tt-navbar__row2-inner">
+      <div class="tt-navbar__center">
+        <a class="tt-navbar__link" routerLink="/Home" routerLinkActive="active">Home</a>
+        <a class="tt-navbar__link" routerLink="/news" routerLinkActive="active">Paper Talk</a>
+        <a class="tt-navbar__link" routerLink="/League/Scoreboard" routerLinkActive="active">Premier League</a>
+        <a class="tt-navbar__link" routerLink="/club" routerLinkActive="active">Teams</a>
+      </div>
+      <div class="tt-navbar__socials tt-navbar__socials--bottom">
+        <span class="tt-navbar__icon"><i class="fa-brands fa-facebook-f"></i></span>
+        <span class="tt-navbar__icon"><i class="fa-brands fa-x-twitter"></i></span>
+        <span class="tt-navbar__icon"><i class="fa-brands fa-linkedin-in"></i></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- قائمة الموبايل الجانبية -->
+<div class="tt-navbar__mobile-menu" [class.open]="mobileMenuOpen">
+  <div class="tt-navbar__mobile-logo">
+    <a class="tt-navbar__logo-link" routerLink="/">
+      <div class="tt-navbar__logo-group">
+        <div class="tt-navbar__logo-icon">SQ</div>
+        <span class="tt-navbar__logo-text">SOCCERIQ</span>
+      </div>
+    </a>
+  </div>
+  <button class="tt-navbar__close" (click)="mobileMenuOpen = false">&times;</button>
+  <nav>
+    <a class="tt-navbar__mobile-link" routerLink="/Home" routerLinkActive="active" (click)="mobileMenuOpen = false">Home</a>
+    <a class="tt-navbar__mobile-link" routerLink="/news" routerLinkActive="active" (click)="mobileMenuOpen = false">Paper Talk</a>
+    <a class="tt-navbar__mobile-link" routerLink="/League/Scoreboard" routerLinkActive="active" (click)="mobileMenuOpen = false">Premier League</a>
+    <a class="tt-navbar__mobile-link" routerLink="/club" routerLinkActive="active" (click)="mobileMenuOpen = false">Teams</a>
+  </nav>
+  <div class="tt-navbar__mobile-actions">
+    <button class="tt-navbar__login" routerLink="/login">Login</button>
+    <button class="tt-navbar__signup" routerLink="/register">Sign Up</button>
+  </div>
+</div>

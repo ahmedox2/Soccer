@@ -1,0 +1,295 @@
+// .table > :not(caption) > * > * {
+//   padding: .5rem .5rem;
+//   color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+//   background-color: transparent;
+//   border-bottom-width: var(--bs-border-width);
+//   box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+// }
+
+// .main-container {
+//   padding: 20px;
+//   background: #fff;
+//   border-radius: 8px;
+//   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+// }
+
+// .league-table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   margin-bottom: 20px;
+  
+//   th {
+//     padding: 12px;
+//     text-align: center;
+//     font-weight: 600;
+//     color: #666;
+//     border-bottom: 2px solid #eee;
+//   }
+  
+//   td {
+//     padding: 12px;
+//     border-bottom: 1px solid #eee;
+//   }
+// }
+
+.position-cell {
+  position: relative;
+  width: 50px;
+  text-align: center;
+}
+
+.colored-bar {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  height: calc(100% - 8px);
+  border-radius: 6px;
+  background: #cfc; /* اللون يتغير ديناميكياً */
+}
+
+.pos-number {
+  font-weight: 600;
+}
+
+// .team-column {
+//   .team-container {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+    
+//     img {
+//       width: 24px;
+//       height: 24px;
+//       object-fit: contain;
+//     }
+//   }
+// }
+
+// .rank-1, .rank-2, .rank-3, .rank-4 {
+//   background: rgba(0, 128, 0, 0.05);
+// }
+// .rank-5, .rank-6 {
+//   background: rgba(255, 165, 0, 0.05);
+// }
+// .rank-18, .rank-19, .rank-20 {
+//   background: rgba(255, 0, 0, 0.05);
+// }
+
+// 
+
+.team-name {
+ overflow: inherit;
+  color: black !important;
+}
+
+
+
+
+.league-table th,
+.league-table td {
+  padding: 2px 5px;
+  font-size: 12px;
+  height: 24px;
+  border-bottom: none !important;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+
+.main-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 12px !important;
+  padding: 0; /* إزالة الـ padding من اليمين واليسار */
+  padding-bottom: 50px;
+  max-width: 1100px;
+  margin: auto;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.league-table tr {
+  transition: background 0.22s cubic-bezier(0.4,0,0.2,1);
+  height: 32px;
+}
+.league-table tbody tr:hover {
+  background: #f6f6f6;
+}
+
+.league-table {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  font-size: 13px;
+}
+
+.league-table thead {
+  background: #fff;
+}
+.league-table th {
+  background: #fff !important;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  border-bottom: none !important;
+  box-shadow: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.league-table th:first-child {
+  border-top-left-radius: 16px;
+}
+.league-table th:last-child {
+  border-top-right-radius: 16px;
+}
+
+.league-table td {
+  font-weight: 500;
+}
+.league-table tr:last-child td {
+border-bottom: none;
+}
+
+.league-table .d-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.me-2 {
+  margin-right: 8px;
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 0 4px;
+}
+
+.next-team-icon {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.team-container img {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain;
+  margin-right: 8px;
+}
+
+.scoreboard-legend {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  padding-top: 12px;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.legend-box.cl { background: #4ade80; }
+.legend-box.el { background: #2563eb; }
+.legend-box.rl { background: #f87171; }
+
+.team-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.team-container img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.team-container img:hover {
+  transform: scale(1.25) rotate(-6deg);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+  z-index: 2;
+}
+
+/* ضبط الاسم */
+.team-container span {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+  white-space: nowrap; /* منع النزول للسطر الثاني */
+}
+/* ضبط شكل أيقونات الفرق في عمود "Next" */
+.next-team-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid transparent !important;
+  margin: auto;
+}
+.next-team-icon:hover {
+  border-color: #333;
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.position-cell {
+  position: relative;
+  padding-left: 0 !important;
+  min-width: 32px;
+  width: 32px;
+  text-align: left;
+  vertical-align: middle;
+}
+.colored-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 1px;
+  display: inline-block;
+}
+.pos-number {
+  margin-left: 16px;
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  line-height: 28px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.league-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}

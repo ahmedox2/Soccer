@@ -1,0 +1,15 @@
+{
+  "routes": [
+    "/club",
+    "/Home",
+    "/League",
+    "/League/Scoreboard",
+    "/League/Stats",
+    "/League/Transfers",
+    "/login",
+    "/news",
+    "/player-states",
+    "/register",
+    "/squad"
+  ]
+}
