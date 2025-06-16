@@ -64,3 +64,29 @@ tbody {
     font-size: 11px;
   }
 }
+.club-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+
+  .nav-link {
+    border: none;
+    color: #6c757d;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+
+    &.active {
+      color: #198754;
+      border-bottom: 2px solid #198754;
+      margin-bottom: -2px;
+    }
+
+    &:hover {
+      border-color: transparent;
+      color: #198754;
+    }
+  }
+}
