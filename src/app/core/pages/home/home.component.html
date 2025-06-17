@@ -13,53 +13,35 @@
               <th class="text-center col-gfga">GF-GA</th>
               <th class="text-center col-gd">GD</th>
               <th class="text-center col-pts">Pts</th>
-              <th class="text-center col-form">Form</th>
-              <th class="text-center col-next">Next</th>
             </tr>
           </thead>
           <tbody>
-           
 
-            <tr *ngFor="let team of teams; let i = index" [ngClass]="'rank-' + (i + 1)">
+
+            <tr *ngFor="let team of Newslist; let i = index" [ngClass]="'rank-' + (i + 1)">
               <td class="position-cell col-pos">
                 <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
-                <span class="pos-number">{{i + 1}}</span>
+                <span class="pos-number">{{team.position}}</span>
               </td>
               <td class="team-column col-team">
                   <div class="team-container">
-                      <img [src]="team.logo" [alt]="team.name">
-                      <span>{{team.name}}</span>
+                      <img [src]="team.team.crest" [alt]="team.team.shortName">
+                      <span>{{team.team.name}}</span>
                   </div>
               </td>
-              
-              <td class="text-center col-mp">{{team.played}}</td>
+
+              <td class="text-center col-mp">{{team.playedGames}}</td>
               <td class="text-center col-w">{{team.won}}</td>
-              <td class="text-center col-d">{{team.drawn}}</td>
+              <td class="text-center col-d">{{team.draw}}</td>
               <td class="text-center col-l">{{team.lost}}</td>
               <td class="text-center col-gfga">{{team.goalsFor}}-{{team.goalsAgainst}}</td>
               <td class="text-center col-gd">{{team.goalDifference}}</td>
               <td class="text-center col-pts"><strong>{{team.points}}</strong></td>
-              
-              <td class="text-center col-form">
-                  <div class="d-flex gap-1 justify-content-center">
-                      <span *ngFor="let result of team.form"
-                            class="badge"
-                            [ngClass]="{
-                              'bg-success': result === 'W',
-                              'bg-danger': result === 'L',
-                              'bg-secondary': result === 'D'
-                            }">
-                          {{result}}
-                      </span>
-                  </div>
-              </td>
-              
-              <td class="text-center col-next">
-                  <img [src]="team.next" [alt]="team.name + ' Next Match'" class="next-team-icon">
-              </td>
+
+
           </tr>
-          
-          
+
+
           </tbody>
       </table>
       <div class="table-legend">
@@ -325,4 +307,3 @@
       </div>
     </div>
 </div>
-  

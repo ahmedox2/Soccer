@@ -1,21 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { afterNextRender,inject,EnvironmentInjector,runInInjectionContext, Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ClubsService } from '../../../shared/service/Clubs/clubs.service';
+import { ActivatedRoute } from '@angular/router';
+import { Team } from '../../../shared/interface/teams';
 
 
-interface Player {
-  name: string;
-  image: string;
-  position: string;
-  nationality: string;
-  number: number;
-}
-
-interface Club {
-  name: string;
-  logo: string;
-  country: string;
-}
 @Component({
   selector: 'app-squad',
   standalone: true,
@@ -24,56 +14,28 @@ interface Club {
   styleUrl: './squad.component.scss'
 })
 export class SquadComponent implements OnInit {
-  club: Club | null = null;
+ isLoading:boolean=false;
+      Newslist!:Team[];
 
-  coach = {
-    name: 'Arne Slot',
-    nationality: 'Netherlands',
-    image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/man39237.png'
-  };
-
-  keepers: Player[] = [
-    {
-      name: 'Alisson Becker',
-      nationality: 'Brazil',
-      position: 'Goalkeeper',
-      number: 1,
-      image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p116535.png'
-    },
-    {
-      name: 'Alisson Becker',
-      nationality: 'Brazil',
-      position: 'Goalkeeper',
-      number: 1,
-      image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p116535.png'
-    },
-    {
-      name: 'Alisson Becker',
-      nationality: 'Brazil',
-      position: 'Goalkeeper',
-      number: 1,
-      image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p116535.png'
-    },
-    {
-      name: 'Caoimhin Kelleher',
-      nationality: 'Ireland',
-      position: 'Goalkeeper',
-      number: 62,
-      image: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p200720.png'
-    }
-  ];
-  private injector = inject(EnvironmentInjector);
-  constructor(private router: Router) {}
+  constructor(private router: Router,private _ClubsService:ClubsService,private route: ActivatedRoute) {}
   ngOnInit() {
-    runInInjectionContext(this.injector, () => {
-      afterNextRender(() => {
-        const storedClub = localStorage.getItem('selectedClub');
-        if (storedClub) {
-          this.club = JSON.parse(storedClub);
-        } else {
-          this.router.navigate(['/']);
-        }
-      });
-    });
+    const id = this.route.snapshot.paramMap.get('id');
+  this.getallproducts(id);
+  }
+      getallproducts(id:any)
+  {
+  this.isLoading=true;
+    this._ClubsService.getclub(id).subscribe({
+      next : res =>{
+        this.Newslist = res.team;
+        console.log(this.Newslist)
+        this.isLoading=false;
+      },
+      error : err =>{
+        console.log(err);
+        this.isLoading=false;
+      }
+    })
+
   }
 }

@@ -12,52 +12,37 @@
                 <th class="text-center">GF-GA</th>
                 <th class="text-center">GD</th>
                 <th class="text-center">Pts</th>
-                <th class="text-center">Form</th>
+   
               </tr>
             </thead>
             <tbody>
-       
 
-        <tr *ngFor="let team of teams; let i = index" [ngClass]="'rank-' + (i + 1)">
+
+        <tr *ngFor="let team of Newslist; let i = index" [ngClass]="'rank-' + (i + 1)">
           <td class="position-cell">
             <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
-            <span class="pos-number">{{i + 1}}</span>
+            <span class="pos-number">{{team.position}}</span>
           </td>
           <td class="team-column">
               <div class="team-container">
-                  <img [src]="team.logo" [alt]="team.name">
-                    <span class="team-name">{{team.name}}</span>
+                  <img [src]="team.team.crest" [alt]="team.team.name">
+                    <span class="team-name">{{team.team.name}}</span>
                   </div>
                 </td>
-          
-                <td class="text-center">{{team.played}}</td>
+
+                <td class="text-center">{{team.playedGames}}</td>
                 <td class="text-center">{{team.won}}</td>
-                <td class="text-center">{{team.drawn}}</td>
+                <td class="text-center">{{team.draw}}</td>
                 <td class="text-center">{{team.lost}}</td>
                 <td class="text-center">{{team.goalsFor}}-{{team.goalsAgainst}}</td>
                 <td class="text-center">{{team.goalDifference}}</td>
                 <td class="text-center"><strong>{{team.points}}</strong></td>
-          
-                <td class="text-center">
-                  <div class="d-flex gap-1 justify-content-center">
-                    <span *ngFor="let result of team.form"
-                          class="badge"
-                          [ngClass]="{
-                            'bg-success': result === 'W',
-                            'bg-danger': result === 'L',
-                            'bg-secondary': result === 'D'
-                          }">
-                      {{result}}
-                    </span>
-                  </div>
-                </td>
-          
-          <td class="text-center">
-              <img [src]="team.next" [alt]="team.name + ' Next Match'" class="next-team-icon">
-          </td>
+
+
+
               </tr>
-      
-      
+
+
             </tbody>
           </table>
     <div class="scoreboard-legend">

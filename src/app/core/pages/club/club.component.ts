@@ -1,6 +1,8 @@
 import { afterNextRender, Component, inject, runInInjectionContext, EnvironmentInjector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Table } from '../../../shared/interface/scorebord';
+import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
 
 interface Club {
   name: string;
@@ -17,118 +19,39 @@ interface Club {
 })
 export class ClubComponent {
   private injector = inject(EnvironmentInjector);
-  clubs: Club[] = [
-    {
-      name: 'Arsenal',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t3.png',
-      country: 'England'
-    },
-    {
-      name: 'Aston Villa',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t7.png',
-      country: 'England'
-    },
-    {
-      name: 'Bournemouth',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t91.png',
-      country: 'England'
-    },
-    {
-      name: 'Brentford',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t94.png',
-      country: 'England'
-    },
-    {
-      name: 'Brighton',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t36.png',
-      country: 'England'
-    },
-    {
-      name: 'Chelsea',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t8.png',
-      country: 'England'
-    },
-    {
-      name: 'Crystal Palace',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t31.png',
-      country: 'England'
-    },
-    {
-      name: 'Everton',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t11.png',
-      country: 'England'
-    },
-    {
-      name: 'Fulham',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t54.png',
-      country: 'England'
-    },
-    {
-      name: 'Liverpool',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t14.png',
-      country: 'England'
-    },
-    {
-      name: 'Manchester City',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t43.png',
-      country: 'England'
-    },
-    {
-      name: 'Manchester United',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t1.png',
-      country: 'England'
-    },
-    {
-      name: 'Newcastle United',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t4.png',
-      country: 'England'
-    },
-    {
-      name: 'Nottingham Forest',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t17.png',
-      country: 'England'
-    },
-    {
-      name: 'Sheffield United',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t49.png',
-      country: 'England'
-    },
-    {
-      name: 'Tottenham Hotspur',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t6.png',
-      country: 'England'
-    },
-    {
-      name: 'West Ham United',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t21.png',
-      country: 'England'
-    },
-    {
-      name: 'Wolves',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t39.png',
-      country: 'England'
-    },
-    {
-      name: 'Burnley',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t90.png',
-      country: 'England'
-    },
-    {
-      name: 'Luton Town',
-      logo: 'https://resources.premierleague.com/premierleague/badges/t102.png',
-      country: 'England'
-    }
-  ];
+  ngOnInit(): void {
 
-  constructor(private router: Router) {}
 
-  navigateToSquad(club: Club) {
-    runInInjectionContext(this.injector, () => {
-      afterNextRender(() => {
-        localStorage.setItem('selectedClub', JSON.stringify(club));
-        this.router.navigate(['/squad']);
-      });
+  this.getallproducts();
 
-    });
+  }
+      isLoading:boolean=false;
+      Newslist!:Table[];
+    getallproducts()
+  {
+  this.isLoading=true;
+    this._NewsService.getscore().subscribe({
+      next : res =>{
+        this.Newslist = res.standings[0].table;
+        console.log(this.Newslist)
+        this.isLoading=false;
+      },
+      error : err =>{
+        console.log(err);
+        this.isLoading=false;
+      }
+    })
+
+  }
+
+
+  constructor(private router: Router,private _NewsService:ScoreboardService) {}
+
+  navigateToSquad(club: any) {
+
+        this.router.navigate([`/squad/${club}`]);
+
+
+
   }
 }

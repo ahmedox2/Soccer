@@ -26,7 +26,7 @@ export const routes: Routes = [
     {path: "Transfers",component:TransfersComponent}
   ]},
   {path: "player-states",component:PlayerStatesComponent},
-  {path: "squad",component:SquadComponent},
+  {path: "squad/:id",component:SquadComponent},
 
 
   {path:"**",component: Page404Component}
