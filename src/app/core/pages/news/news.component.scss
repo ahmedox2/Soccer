@@ -320,6 +320,24 @@
   }
 }
 
+@media (max-width: 600px) {
+  .featured-article {
+    .split-article {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+      box-shadow: none;
+    }
+    .article-images {
+      height: 400px !important;
+      min-height: unset !important;
+      max-height: 420px !important;
+    }
+    .article-content {
+      padding: 1rem !important;
+    }
+  }
+}
+
 // Keyframes Animations
 @keyframes fadeIn {
   from {

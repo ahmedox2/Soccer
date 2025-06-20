@@ -293,3 +293,19 @@ border-bottom: none;
   align-items: flex-start;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .team-name {
+    font-size: 12px !important;
+    margin-left: 6px !important;
+  }
+  .team-column {
+    text-align: left !important;
+  }
+  .team-container {
+    justify-content: flex-start !important;
+  }
+}

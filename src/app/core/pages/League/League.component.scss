@@ -64,11 +64,39 @@ tbody {
     font-size: 11px;
   }
 }
+
+@media (max-width: 600px) {
+  .nav-tabs {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    border-bottom: 2px solid #dee2e6;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+  }
+  .nav-tabs .nav-item {
+    flex: 1 0 auto !important;
+    margin: 0 !important;
+    min-width: 80px;
+    text-align: center;
+  }
+  .nav-tabs .nav-link {
+    padding: 0.5rem 0.2rem !important;
+    font-size: 0.92rem !important;
+    min-width: 70px;
+    white-space: nowrap;
+  }
+}
+
 .club-logo {
   width: 64px;
   height: 64px;
   object-fit: contain;
 }
+
 .nav-tabs {
   border-bottom: 2px solid #dee2e6;
 

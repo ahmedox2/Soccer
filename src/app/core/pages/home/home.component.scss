@@ -1173,3 +1173,9 @@
     font-size: 10px;
   }
 }
+
+@media (max-width: 600px) {
+  .team-of-the-week-section {
+    display: none !important;
+  }
+}

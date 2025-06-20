@@ -116,3 +116,54 @@ padding-top: 7px !important;
 .date{
   padding-top: 20px !important;
 }
+
+@media (max-width: 600px) {
+  .transfer-table-container {
+    padding: 6px !important;
+  }
+  .transfer-table th, .transfer-table td {
+    font-size: 12px !important;
+    padding: 4px 4px !important;
+  }
+  .player-info {
+    gap: 6px !important;
+  }
+  .player-img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .player-name {
+    font-size: 13px !important;
+  }
+  .player-team span {
+    font-size: 12px !important;
+  }
+  .team-logo {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .fee, .from, .position, .contract, .market-value, .date {
+    font-size: 11px !important;
+    padding: 2px 2px !important;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+  .from span {
+    font-size: 11px !important;
+  }
+  .position {
+    font-size: 11px !important;
+    padding: 2px 7px !important;
+  }
+  .market-value {
+    font-size: 11px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    white-space: nowrap !important;
+  }
+  .transfer-table td {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+}

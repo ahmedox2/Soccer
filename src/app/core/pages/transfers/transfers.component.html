@@ -3,12 +3,12 @@
     <thead>
       <tr>
         <th style="width: 400px">Player</th>
-        <th>Fee</th>
+        <th class="hide-mobile">Fee</th>
         <th>From</th>
         <th>Position</th>
-        <th>Contract</th>
+        <th class="hide-mobile">Contract</th>
         <th>Market value</th>
-        <th>Date</th>
+        <th class="hide-mobile">Date</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +26,7 @@
             </div>
           </div>
         </td>
-        <td class="fee">{{ transfer.fee }}</td>
+        <td class="fee hide-mobile">{{ transfer.fee }}</td>
         <td class="from">
           <div class="team-info">
             <img [src]="getFromTeamLogo(transfer.from)" [alt]="transfer.from" class="team-logo">
@@ -34,9 +34,9 @@
           </div>
         </td>
         <td><span class="position">{{ transfer.position }}</span></td>
-        <td class="contract">{{ transfer.contract }}</td>
+        <td class="contract hide-mobile">{{ transfer.contract }}</td>
         <td class="market-value">{{ transfer.marketValue }}</td>
-        <td class="date">{{ transfer.date }}</td>
+        <td class="date hide-mobile">{{ transfer.date }}</td>
       </tr>
     </tbody>
   </table>
