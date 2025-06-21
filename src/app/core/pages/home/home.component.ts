@@ -1,22 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Table } from '../../../shared/interface/scorebord';
+
 import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
-interface Team {
-  name: string;
-  logo: string;
-  played: number;
-  won: number;
-  drawn: number;
-  lost: number;
-  goalsFor: number;
-  goalsAgainst: number;
-  goalDifference: number;
-  points: number;
-  form: ('W' | 'D' | 'L')[];
-  next: string;
-}
+import { AuthService } from '../../../shared/service/Auth/Auth.service';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -27,10 +15,20 @@ interface Team {
 
 export class HomeComponent {
     isLoading:boolean=false;
-    Newslist!:Table[];
-
+    Newslist!:[];
+  isLogin : boolean = false;
 
   ngOnInit(): void {
+
+
+    this._AuthService.userData.subscribe(() => {
+      if(this._AuthService.userData.getValue() != null) {
+        this.isLogin = true;
+      }
+      else {
+        this.isLogin = false;
+      }
+    })
 
 
   this.getallproducts();
@@ -42,7 +40,7 @@ export class HomeComponent {
   this.isLoading=true;
     this._NewsService.getscore().subscribe({
       next : res =>{
-        this.Newslist = res.standings[0].table;
+        this.Newslist = res;
         console.log(this.Newslist)
         this.isLoading=false;
       },
@@ -270,11 +268,13 @@ isMobile = false;
 //   this.checkScreenSize();
 //   window.addEventListener('resize', this.checkScreenSize.bind(this));
 // }
-constructor(private _NewsService:ScoreboardService) {
+constructor(private _NewsService:ScoreboardService ,public _AuthService:AuthService) {
   if (typeof window !== 'undefined') {
     this.checkScreenSize();
     window.addEventListener('resize', this.checkScreenSize.bind(this));
   }
+     if( typeof localStorage!= 'undefined')
+   localStorage.setItem('currentpage','/Home')
 
 }
 
@@ -282,4 +282,5 @@ constructor(private _NewsService:ScoreboardService) {
 checkScreenSize() {
   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
 }
+
 }

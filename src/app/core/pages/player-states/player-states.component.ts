@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
+import { ClubsService } from '../../../shared/service/Clubs/clubs.service';
+import { Clubs } from '../../../shared/interface/Clubs';
+import { PlayerStatesService } from '../../../shared/service/player-states/player-states.service';
+import { PlayerStates } from '../../../shared/interface/Player';
 interface PlayerStats {
   goals: number;
   assists: number;
@@ -59,13 +63,29 @@ export class PlayerStatesComponent implements OnInit {
     redCards: 0
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private _PlayerStatesService:PlayerStatesService,private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // You can fetch player data here
+        const id = this.route.snapshot.paramMap.get('id');
+       if( typeof localStorage!= 'undefined')
+   localStorage.setItem('currentpage',`/player-states/${id}`)
+  }
+    isLoading:boolean=false;
+    playerStateslist!: PlayerStates;
+  getPlayerInfo(id:any)
+  {
+  this.isLoading=true;
+    this._PlayerStatesService.getPlayerStates(id).subscribe({
+      next : res =>{
+        this.playerStateslist = res;
+        this.isLoading=false;
+      },
+      error : err =>{
+        console.log(err);
+        this.isLoading=false;
+      }
+    })
+
   }
 
-  navigateToPlayer(playerId: string): void {
-    this.router.navigate(['/player', playerId]);
-  }
 }

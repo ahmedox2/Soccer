@@ -18,8 +18,15 @@
       </div>
       <div class="tt-navbar__right">
         <span class="tt-navbar__notif"><i class="fa fa-bell"></i></span>
+                @if(isLogin == false)
+        {
         <button class="tt-navbar__signup" routerLink="/register">Sign Up</button>
         <button class="tt-navbar__login" routerLink="/login">Login</button>
+        }
+                @else
+        {
+          <button (click)="_AuthService.logOut()" class="tt-navbar__login">SignOut</button>
+          }
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@ export const routes: Routes = [
     {path: "Stats",component:StatsComponent},
     {path: "Transfers",component:TransfersComponent}
   ]},
-  {path: "player-states",component:PlayerStatesComponent},
+  {path: "player-states/:id",component:PlayerStatesComponent},
   {path: "squad/:id",component:SquadComponent},
 
 

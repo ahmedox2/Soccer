@@ -1,0 +1,67 @@
+<div class="container-fluid mt-85 p-4">
+  <!-- Club Header -->
+  <div class="club-header mb-4 d-flex align-items-center">
+    <img [src]="Clubslist?.logo" [alt]="Clubslist?.name" class="club-logo me-3">
+    <div>
+      <h1 class="mb-1">{{Clubslist?.name}}</h1>
+      <p class="text-muted mb-0">{{Clubslist?.country}}</p>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="true">Overview</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Table</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Fixtures</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Squad</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Stats</a>
+    </li>
+  </ul>
+
+  <!-- Squad Section -->
+   <div class="squad-section">
+    <!-- Coach Section -->
+    <!-- <div class="mb-5">
+      <h2 class="section-title mb-4">Coach</h2>
+      <div class="card">
+        <div class="card-body d-flex align-items-center">
+          <img [src]="coach.image" [alt]="coach.name" class="coach-image me-3">
+          <div>
+            <h3 class="mb-1">{{coach.name}}</h3>
+            <p class="text-muted mb-0">{{coach.nationality}}</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Players Section -->
+    <div class="mb-4">
+      <h2 class="section-title mb-4">Players</h2>
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let player of Clubslist?.players">
+
+          <div class="card player-card">
+            <div class="card-body d-flex align-items-center" (click)="navigateToplayer(player.id)">
+              <p class="player-image me-3">{{player.position}}</p>
+              <div>
+                <h4 class="mb-1">{{player.name}}</h4>
+                <p class="text-muted mb-2">{{player.position}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+

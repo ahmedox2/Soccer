@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://final-socceriq.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
+

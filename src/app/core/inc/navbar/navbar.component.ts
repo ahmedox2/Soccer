@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../shared/service/Auth/Auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -25,5 +26,17 @@ export class NavbarComponent {
       this.showNavbar = true;
     }
     this.lastScrollTop = st <= 0 ? 0 : st;
+  }
+  constructor(public _AuthService:AuthService) { }
+  isLogin : boolean = false;
+  ngOnInit(): void {
+    this._AuthService.userData.subscribe(() => {
+      if(this._AuthService.userData.getValue() != null) {
+        this.isLogin = true;
+      }
+      else {
+        this.isLogin = false;
+      }
+    })
   }
 }

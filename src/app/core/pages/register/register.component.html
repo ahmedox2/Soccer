@@ -9,39 +9,98 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4 flex-grow-1 d-flex flex-column justify-content-between">
+                <form [formGroup]="registerForm" (ngSubmit)="submitRegister()" class="mx-1 mx-md-4 flex-grow-1 d-flex flex-column justify-content-between">
+@if(errmsg){
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
 
-                  <div class="d-flex flex-row align-items-center mb-4">
+  <div>
+    {{errmsg}}
+  </div>
+</div>
+          }
+                            <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
+                      <input type="text" formControlName="DisplayName" id="form3Example1c" class="form-control" />
                       <label class="form-label" for="form3Example1c">Your Name</label>
                     </div>
                   </div>
-
+                                  @if (registerForm.get('DisplayName')?.errors && registerForm.get('DisplayName')?.touched) {
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+        @if (registerForm.get('DisplayName')?.errors?.['required'])
+        {<p class="p-1 m-0"> Name is required</p>}
+        @else if (registerForm.get('DisplayName')?.errors?.['minlength'])
+        {<p class="p-1 m-0">name min length is : 3</p>}
+        @else if (registerForm.get('DisplayName')?.errors?.['minlength'])
+        { <p class="p-1 m-0">name max length is : 8</p>}
+      </div>
+    </div>
+    }
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
+                      <input type="text" formControlName="UserName" id="form3Example1c" class="form-control" />
+                      <label class="form-label" for="form3Example1c">Your UserName</label>
                     </div>
                   </div>
+                                  @if (registerForm.get('UserName')?.errors && registerForm.get('UserName')?.touched) {
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+        @if (registerForm.get('UserName')?.errors?.['required'])
+        {<p class="p-1 m-0">User Name is required</p>}
+        @else if (registerForm.get('UserName')?.errors?.['minlength'])
+        {<p class="p-1 m-0">name min length is : 3</p>}
+        @else if (registerForm.get('UserName')?.errors?.['minlength'])
+        { <p class="p-1 m-0">name max length is : 8</p>}
+      </div>
+    </div>
+    }
+
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
+                      <input type="password" formControlName="Password" id="form3Example4c" class="form-control" />
                       <label class="form-label" for="form3Example4c">Password</label>
                     </div>
                   </div>
+                   @if (registerForm.get('Password')?.errors && registerForm.get('Password')?.touched) {
+                  <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+                  @if (registerForm.get('Password')?.errors?.['required'])
+                  {<p class="p-1 m-0">password is required</p>}
+                  @else if (registerForm.get('Password')?.errors?.['pattern'])
+                  {<p>At least 8 characters </p>
+
+<p>At least 1 lowercase letter</p>
+
+<p>At least 1 uppercase letter</p>
+
+<p>At least 1 digit</p>
+
+<p>At least 1 special character (e.g. !#$%^&*())</p>}
+                  </div>
+                </div>
+              }
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
+                      <input type="password" formControlName="rePassword" id="form3Example4cd" class="form-control" />
                       <label class="form-label" for="form3Example4cd">Repeat your password</label>
                     </div>
                   </div>
+                                    @if (registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched) {
+         <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <div>
+              @if (registerForm.get('rePassword')?.errors?.['required'])
+              {<p class="p-1 m-0">password is required</p>}
+              @else if (registerForm.get('rePassword')?.errors?.['mismatch'])
+              {<p class="p-1 m-0">password not macth</p>}
+        </div>
+      </div>
+    }
 
                   <div class="form-check d-flex justify-content-center mb-4">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
@@ -51,9 +110,11 @@
                   </div>
 
                   <div class="d-flex justify-content-center mt-4 mb-4">
-                    <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5 register-btn-center">Register</button>
+                    <button [disabled]="registerForm.invalid" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg px-5 register-btn-center">
+                      @if(isLoading){<span> Register <i class="fa fa-spin fa-spinner"></i></span>}
+                  @else{<span> Register </span>}</button>
                   </div>
-                  
+
 
                 </form>
 

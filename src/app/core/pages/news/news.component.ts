@@ -16,7 +16,7 @@ export class NewsComponent implements OnInit{
   constructor(private _NewsService:NewsService) { }
   ngOnInit(): void {
     if( typeof localStorage!= 'undefined')
-   localStorage.setItem('currentpage','/Home')
+   localStorage.setItem('currentpage','/news')
 
   this.getallproducts();
 

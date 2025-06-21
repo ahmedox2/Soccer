@@ -3,32 +3,35 @@ import {  Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClubsService } from '../../../shared/service/Clubs/clubs.service';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from '../../../shared/interface/teams';
+import { Clubs } from '../../../shared/interface/Clubs';
+
 
 
 @Component({
   selector: 'app-squad',
   standalone: true,
-  imports: [CommonModule , ],
+  imports: [CommonModule],
   templateUrl: './squad.component.html',
   styleUrl: './squad.component.scss'
 })
 export class SquadComponent implements OnInit {
- isLoading:boolean=false;
-      Newslist!:Team[];
+  isLoading:boolean=false;
+  Clubslist!: Clubs;
 
   constructor(private router: Router,private _ClubsService:ClubsService,private route: ActivatedRoute) {}
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-  this.getallproducts(id);
+       if( typeof localStorage!= 'undefined')
+   localStorage.setItem('currentpage',`/squad/${id}`)
+
+  this.getclub(id);
   }
-      getallproducts(id:any)
+      getclub(id:any)
   {
   this.isLoading=true;
     this._ClubsService.getclub(id).subscribe({
       next : res =>{
-        this.Newslist = res.team;
-        console.log(this.Newslist)
+        this.Clubslist = res;
         this.isLoading=false;
       },
       error : err =>{
@@ -37,5 +40,8 @@ export class SquadComponent implements OnInit {
       }
     })
 
+  }
+    navigateToplayer(player: any) {
+    this.router.navigate([`player-states/${player}`]);
   }
 }

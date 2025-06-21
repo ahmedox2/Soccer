@@ -1,7 +1,8 @@
-<div class="main-container">
+@if(isLogin){
+  <div class="main-container">
     <!-- جدول الدوري -->
     <div class="left-section">
-      <table class="league-table">
+      <!-- <table class="league-table">
         <thead>
             <tr>
               <th class="text-center col-pos" style="width: 50px">Pos</th>
@@ -43,7 +44,7 @@
 
 
           </tbody>
-      </table>
+      </table> -->
       <div class="table-legend">
         <span class="legend-item"><span class="legend-color cl"></span> Champions League</span>
         <span class="legend-item"><span class="legend-color el"></span> Europa League</span>
@@ -307,3 +308,7 @@
       </div>
     </div>
 </div>
+
+}@else {
+
+}
