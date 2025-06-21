@@ -1179,3 +1179,115 @@
     display: none !important;
   }
 }
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images2/ruben-leija-Qlrcw3yOKec-unsplash.jpg);
+background-size: cover;
+background-position: center center;
+transition: 2s all;
+}
+
+#home a:hover{
+  background-color:yellowgreen;
+  color: var(--color-light-1);
+}
+.container{
+  height: 100%;
+}
+
+.hero_content{
+  height: 100%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero_content h4{
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.hero_content h2{
+  font-size: 3.75rem;
+  font-weight: 200;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#home .shape{
+  width: 35px;
+  height: 80px;
+  position: absolute;
+  bottom: 30px;
+  border: 2px solid white;
+  border-radius: 20px;
+  transform: translateX(-50%);
+  animation: updown 0.2s infinite;
+  animation-direction:alternate;
+}
+@keyframes updown{
+  0%{
+    bottom: 30px;
+  }
+  25%{
+    bottom: 35px;
+  }
+  75%{
+    bottom: 38px;
+  }
+  100%{
+    bottom: 42px;
+  }
+}
+#home .shape::after{
+  content: '';
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  width: 5px;
+  height: 8px;
+  background-color: white;
+  transform: translateX(-50%);
+  border-radius: 15px;
+}
+
+
+.hero_content_world{
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 400;
+  transition: 0.3 ease;
+  animation: changewidth 7s 1s infinite ;
+}
+.hero_content_world::after{
+  content: 'larry';
+  animation: changeword 7s 1s ease infinite ;
+}
+@keyframes changewidth{
+  0%,30%,60%,100%{
+      width: 100%;
+      padding-right: 8px;
+  }
+  15%,45%,75%{
+      width: 0%;
+      padding-right: 0px;
+  }
+}
+
+@keyframes changeword{
+  0%,99%,100%{
+     content: 'Discover';
+  }
+  30%{
+      content: 'Managed';
+   }
+   60%{
+      content: 'Scout';
+   }
+
+}
