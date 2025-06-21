@@ -5,7 +5,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   // SSR-safe token access
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
-  const excludedUrls = ['/login', '/register'];
+  const excludedUrls = ['/l', '/rer'];
   if (excludedUrls.some(url => req.url.includes(url))) {
     return next(req);
   }

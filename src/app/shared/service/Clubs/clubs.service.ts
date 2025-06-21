@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Clubs } from '../../interface/Clubs';
+import { Enviroment } from '../../../core/base/Enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ClubsService {
     getclubs(): Observable<Clubs[]> {
 
     return this._HttpClient.get<Clubs[]>(
-      `/api/Clubs`
+      `${Enviroment.baseUrl}/api/Clubs`
 
     );
   }
@@ -21,9 +22,9 @@ export class ClubsService {
   getclub(id:any): Observable<Clubs> {
 
     return this._HttpClient.get<Clubs>(
-      `/api/Clubs/${id}`
+      `${Enviroment.baseUrl}/api/Clubs/${id}`
 
     );
   }
-  
+
 }

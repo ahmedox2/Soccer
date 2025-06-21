@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Player, PlayerStates } from '../../interface/Player';
+import { Enviroment } from '../../../core/base/Enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class PlayerStatesService {
         getPlayerStates(id:any): Observable<PlayerStates> {
 
       return this._HttpClient.get<PlayerStates>(
-        `/api/PlayerStats/${id}`
+        `${Enviroment.baseUrl}/api/PlayerStats/${id}`
 
       );
     }
