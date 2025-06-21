@@ -41,7 +41,13 @@ body {
   height: 100%;
   width: 100%;
 }
-
+ .hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/images2/ruben-leija-Qlrcw3yOKec-unsplash.jpg);
+background-size: cover;
+background-position: center center;
+transition: 2s all;
+}
 
 .hero_content h4{
   font-size: 50px;
