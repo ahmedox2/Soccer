@@ -13,7 +13,7 @@ export class PlayerStatesService {
     getPlayerInfo(id:any): Observable<Player> {
 
       return this._HttpClient.get<Player>(
-        `/api/Players/${id}`
+        `${Enviroment.baseUrl}/api/Players/${id}`
 
       );
     }
