@@ -50,5 +50,13 @@ export interface Player {
   photoUrl: null;
   position: string;
   clubId:   number;
+  club:     Club;
 }
 
+export interface Club {
+  id:      number;
+  name:    string;
+  country: string;
+  logo:    string;
+  players: null[];
+}

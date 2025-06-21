@@ -2,8 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { ClubsService } from '../../../shared/service/Clubs/clubs.service';
-import { Clubs } from '../../../shared/interface/Clubs';
 import { PlayerStatesService } from '../../../shared/service/player-states/player-states.service';
 import { Player, PlayerStates } from '../../../shared/interface/Player';
 
@@ -22,16 +20,19 @@ export class PlayerStatesComponent implements OnInit {
        if( typeof localStorage!= 'undefined')
    localStorage.setItem('currentpage',`/player-states/${id}`)
   this.getPlayerStates(id);
+  this.getPlayerInfo(id);
   }
     isLoading:boolean=false;
     playerStateslist!: PlayerStates;
     PlayerInfolist!: Player;
+    pos:string='FWD';
   getPlayerStates(id:any)
   {
   this.isLoading=true;
     this._PlayerStatesService.getPlayerStates(id).subscribe({
       next : res =>{
         this.playerStateslist = res;
+        console.log(this.playerStateslist);
         this.isLoading=false;
       },
       error : err =>{
@@ -47,6 +48,7 @@ export class PlayerStatesComponent implements OnInit {
     this._PlayerStatesService.getPlayerInfo(id).subscribe({
       next : res =>{
         this.PlayerInfolist = res;
+        console.log(this.PlayerInfolist);
         this.isLoading=false;
       },
       error : err =>{

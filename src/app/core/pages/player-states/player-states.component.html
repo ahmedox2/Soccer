@@ -1,3 +1,4 @@
+@if(pos=='DEF'){
 <div class="player-card-pro">
   <div class="player-header-pro">
     <!-- <button class="follow-btn-pro">Follow</button> -->
@@ -5,44 +6,44 @@
       <!-- <img class="player-img-pro" src="https://images.fotmob.com/image_resources/playerimages/292462.png" alt="Mohamed Salah"> -->
     </div>
     <div class="player-header-info-pro">
-      <h1 class="player-name-pro">Mohamed Salah</h1>
-      <div class="player-club-pro">Liverpool</div>
+      <h1 class="player-name-pro">{{PlayerInfolist?.name}}</h1>
+      <div class="player-club-pro">{{PlayerInfolist?.club?.name}}</div>
     </div>
   </div>
   <div class="player-info-grid-pro">
     <div class="player-info-cols-pro">
       <div class="player-info-item-pro">
-        <div class="info-title-pro">175 cm</div>
+        <div class="info-title-pro">{{playerStateslist?.goals}}</div>
         <div class="info-label-pro">Goals</div>
       </div>
       <div class="player-info-item-pro">
-        <div class="info-title-pro">32 years</div>
+        <div class="info-title-pro">{{playerStateslist?.predictedGoals}}</div>
         <div class="info-label-pro">Expected Goals(XG)</div>
       </div>
       <div class="player-info-item-pro">
-        <div class="info-title-pro"> Egypt</div>
+        <div class="info-title-pro">{{playerStateslist?.goals_Assists}}</div>
         <div class="info-label-pro">goals_Assists</div>
       </div>
     </div>
     <div class="player-info-cols-pro">
       <div class="player-info-item-pro">
-        <div class="info-title-pro">11</div>
+        <div class="info-title-pro">{{playerStateslist?.assists}}</div>
         <div class="info-label-pro">Assists</div>
       </div>
       <div class="player-info-item-pro">
-        <div class="info-title-pro">Left</div>
+        <div class="info-title-pro">{{playerStateslist?.predictedAssists}}</div>
         <div class="info-label-pro">Expected Assists (XA)</div>
       </div>
       <div class="player-info-item-pro">
-        <div class="info-title-pro">€57M</div>
+        <div class="info-title-pro">{{playerStateslist.ownGoals}}</div>
         <div class="info-label-pro">ownGoals</div>
       </div>
     </div>
     <div class="player-info-cols-pro position-col-pro">
       <div class="position-info-v2">
-        <div class="position-label-v2">Position</div>
+        <div class="position-label-v2">{{PlayerInfolist?.position}}</div>
         <div class="primary-label-v2">Primary</div>
-        <div class="position-primary-v2">Right Winger</div>
+        <!-- <div class="position-primary-v2">Right Winger</div> -->
       </div>
       <div class="pitch-pro-v2">
         <img src="https://implyingrigged.info/w/images/thumb/a/a7/Blank_pitch.png/300px-Blank_pitch.png" alt="Pitch" class="pitch-img-pro-v2">
@@ -58,42 +59,350 @@
     <span class="league-title-pro v2">Premier League 2024/2025</span>
   </div>
   <div class="stats-grid-pro v2">
-  
+
      <div class="stats-row-pro v2">
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro v2">3,197</div>
+        <div class="stat-value-pro v2">{{playerStateslist?.shots}}</div>
         <div class="stat-label-pro v2">shots</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro  v2">8.04</div>
+        <div class="stat-value-pro  v2">{{playerStateslist?.shotsOnTarget}}</div>
         <div class="stat-label-pro v2">shotsOnTarget</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro  v2">1</div>
+        <div class="stat-value-pro  v2">{{playerStateslist?.bigChancesMissed}}</div>
         <div class="stat-label-pro v2">bigChancesMissed</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro  v2">0</div>
+        <div class="stat-value-pro  v2">{{playerStateslist?.passes}}</div>
         <div class="stat-label-pro v2">passes</div>
       </div>
     </div>
     <div class="stats-row-pro v2">
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro v2">3,197</div>
+        <div class="stat-value-pro v2">{{playerStateslist?.duelsWon}}</div>
         <div class="stat-label-pro v2">duelsWon</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro  v2">8.04</div>
+        <div class="stat-value-pro  v2">{{playerStateslist?.fouls}}</div>
         <div class="stat-label-pro v2">fouls</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro yellow-pro v2"><span class="icon-yellow v2"></span>1</div>
+        <div class="stat-value-pro yellow-pro v2"><span class="icon-yellow v2"></span>{{playerStateslist?.yellowCards}}</div>
         <div class="stat-label-pro v2">Yellow cards</div>
       </div>
       <div class="stat-item-pro v2">
-        <div class="stat-value-pro red-pro v2"><span class="icon-red v2"></span>0</div>
+        <div class="stat-value-pro red-pro v2"><span class="icon-red v2"></span>{{playerStateslist?.redCards}}</div>
         <div class="stat-label-pro v2">Red cards</div>
       </div>
     </div>
   </div>
 </div>
+
+}
+@else if (pos=='FWD') {
+<div class="player-card-pro">
+  <div class="player-header-pro">
+    <!-- <button class="follow-btn-pro">Follow</button> -->
+    <div class="player-img-wrapper-pro">
+      <!-- <img class="player-img-pro" src="https://images.fotmob.com/image_resources/playerimages/292462.png" alt="Mohamed Salah"> -->
+    </div>
+    <div class="player-header-info-pro">
+      <h1 class="player-name-pro">{{PlayerInfolist?.name}}</h1>
+      <div class="player-club-pro">{{PlayerInfolist?.club?.name}}</div>
+    </div>
+  </div>
+  <div class="player-info-grid-pro">
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals}}</div>
+        <div class="info-label-pro">Goals</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedGoals}}</div>
+        <div class="info-label-pro">Expected Goals(XG)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals_Assists}}</div>
+        <div class="info-label-pro">goals_Assists</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.assists}}</div>
+        <div class="info-label-pro">Assists</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedAssists}}</div>
+        <div class="info-label-pro">Expected Assists (XA)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist.ownGoals}}</div>
+        <div class="info-label-pro">ownGoals</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro position-col-pro">
+      <div class="position-info-v2">
+        <div class="position-label-v2">{{PlayerInfolist?.position}}</div>
+        <div class="primary-label-v2">Primary</div>
+        <!-- <div class="position-primary-v2">Right Winger</div> -->
+      </div>
+      <div class="pitch-pro-v2">
+        <img src="https://implyingrigged.info/w/images/thumb/a/a7/Blank_pitch.png/300px-Blank_pitch.png" alt="Pitch" class="pitch-img-pro-v2">
+        <div class="rw-badge-pro-v2">RW</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Player Stats Summary Card -->
+<div class="player-stats-summary-pro v2">
+  <div class="stats-header-pro v2">
+    <img src="https://images.fotmob.com/image_resources/logo/leaguelogo/47.png" alt="Premier League" class="league-logo-pro v2">
+    <span class="league-title-pro v2">Premier League 2024/2025</span>
+  </div>
+  <div class="stats-grid-pro v2">
+
+     <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.shots}}</div>
+        <div class="stat-label-pro v2">shots</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.shotsOnTarget}}</div>
+        <div class="stat-label-pro v2">shotsOnTarget</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.bigChancesMissed}}</div>
+        <div class="stat-label-pro v2">bigChancesMissed</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.passes}}</div>
+        <div class="stat-label-pro v2">passes</div>
+      </div>
+    </div>
+    <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.duelsWon}}</div>
+        <div class="stat-label-pro v2">duelsWon</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.fouls}}</div>
+        <div class="stat-label-pro v2">fouls</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro yellow-pro v2"><span class="icon-yellow v2"></span>{{playerStateslist?.yellowCards}}</div>
+        <div class="stat-label-pro v2">Yellow cards</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro red-pro v2"><span class="icon-red v2"></span>{{playerStateslist?.redCards}}</div>
+        <div class="stat-label-pro v2">Red cards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+}
+@else if (pos=='FWD') {
+<div class="player-card-pro">
+  <div class="player-header-pro">
+    <!-- <button class="follow-btn-pro">Follow</button> -->
+    <div class="player-img-wrapper-pro">
+      <!-- <img class="player-img-pro" src="https://images.fotmob.com/image_resources/playerimages/292462.png" alt="Mohamed Salah"> -->
+    </div>
+    <div class="player-header-info-pro">
+      <h1 class="player-name-pro">{{PlayerInfolist?.name}}</h1>
+      <div class="player-club-pro">{{PlayerInfolist?.club?.name}}</div>
+    </div>
+  </div>
+  <div class="player-info-grid-pro">
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals}}</div>
+        <div class="info-label-pro">Goals</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedGoals}}</div>
+        <div class="info-label-pro">Expected Goals(XG)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals_Assists}}</div>
+        <div class="info-label-pro">goals_Assists</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.assists}}</div>
+        <div class="info-label-pro">Assists</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedAssists}}</div>
+        <div class="info-label-pro">Expected Assists (XA)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist.ownGoals}}</div>
+        <div class="info-label-pro">ownGoals</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro position-col-pro">
+      <div class="position-info-v2">
+        <div class="position-label-v2">{{PlayerInfolist?.position}}</div>
+        <div class="primary-label-v2">Primary</div>
+        <!-- <div class="position-primary-v2">Right Winger</div> -->
+      </div>
+      <div class="pitch-pro-v2">
+        <img src="https://implyingrigged.info/w/images/thumb/a/a7/Blank_pitch.png/300px-Blank_pitch.png" alt="Pitch" class="pitch-img-pro-v2">
+        <div class="rw-badge-pro-v2">RW</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Player Stats Summary Card -->
+<div class="player-stats-summary-pro v2">
+  <div class="stats-header-pro v2">
+    <img src="https://images.fotmob.com/image_resources/logo/leaguelogo/47.png" alt="Premier League" class="league-logo-pro v2">
+    <span class="league-title-pro v2">Premier League 2024/2025</span>
+  </div>
+  <div class="stats-grid-pro v2">
+
+     <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.shots}}</div>
+        <div class="stat-label-pro v2">shots</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.shotsOnTarget}}</div>
+        <div class="stat-label-pro v2">shotsOnTarget</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.bigChancesMissed}}</div>
+        <div class="stat-label-pro v2">bigChancesMissed</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.passes}}</div>
+        <div class="stat-label-pro v2">passes</div>
+      </div>
+    </div>
+    <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.duelsWon}}</div>
+        <div class="stat-label-pro v2">duelsWon</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.fouls}}</div>
+        <div class="stat-label-pro v2">fouls</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro yellow-pro v2"><span class="icon-yellow v2"></span>{{playerStateslist?.yellowCards}}</div>
+        <div class="stat-label-pro v2">Yellow cards</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro red-pro v2"><span class="icon-red v2"></span>{{playerStateslist?.redCards}}</div>
+        <div class="stat-label-pro v2">Red cards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+}
+@else{
+<div class="player-card-pro">
+  <div class="player-header-pro">
+    <!-- <button class="follow-btn-pro">Follow</button> -->
+    <div class="player-img-wrapper-pro">
+      <!-- <img class="player-img-pro" src="https://images.fotmob.com/image_resources/playerimages/292462.png" alt="Mohamed Salah"> -->
+    </div>
+    <div class="player-header-info-pro">
+      <h1 class="player-name-pro">{{PlayerInfolist?.name}}</h1>
+      <div class="player-club-pro">{{PlayerInfolist?.club?.name}}</div>
+    </div>
+  </div>
+  <div class="player-info-grid-pro">
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals}}</div>
+        <div class="info-label-pro">Goals</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedGoals}}</div>
+        <div class="info-label-pro">Expected Goals(XG)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.goals_Assists}}</div>
+        <div class="info-label-pro">goals_Assists</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro">
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.assists}}</div>
+        <div class="info-label-pro">Assists</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist?.predictedAssists}}</div>
+        <div class="info-label-pro">Expected Assists (XA)</div>
+      </div>
+      <div class="player-info-item-pro">
+        <div class="info-title-pro">{{playerStateslist.ownGoals}}</div>
+        <div class="info-label-pro">ownGoals</div>
+      </div>
+    </div>
+    <div class="player-info-cols-pro position-col-pro">
+      <div class="position-info-v2">
+        <div class="position-label-v2">{{PlayerInfolist?.position}}</div>
+        <div class="primary-label-v2">Primary</div>
+        <!-- <div class="position-primary-v2">Right Winger</div> -->
+      </div>
+      <div class="pitch-pro-v2">
+        <img src="https://implyingrigged.info/w/images/thumb/a/a7/Blank_pitch.png/300px-Blank_pitch.png" alt="Pitch" class="pitch-img-pro-v2">
+        <div class="rw-badge-pro-v2">RW</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Player Stats Summary Card -->
+<div class="player-stats-summary-pro v2">
+  <div class="stats-header-pro v2">
+    <img src="https://images.fotmob.com/image_resources/logo/leaguelogo/47.png" alt="Premier League" class="league-logo-pro v2">
+    <span class="league-title-pro v2">Premier League 2024/2025</span>
+  </div>
+  <div class="stats-grid-pro v2">
+
+     <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.shots}}</div>
+        <div class="stat-label-pro v2">shots</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.shotsOnTarget}}</div>
+        <div class="stat-label-pro v2">shotsOnTarget</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.bigChancesMissed}}</div>
+        <div class="stat-label-pro v2">bigChancesMissed</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.passes}}</div>
+        <div class="stat-label-pro v2">passes</div>
+      </div>
+    </div>
+    <div class="stats-row-pro v2">
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro v2">{{playerStateslist?.duelsWon}}</div>
+        <div class="stat-label-pro v2">duelsWon</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro  v2">{{playerStateslist?.fouls}}</div>
+        <div class="stat-label-pro v2">fouls</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro yellow-pro v2"><span class="icon-yellow v2"></span>{{playerStateslist?.yellowCards}}</div>
+        <div class="stat-label-pro v2">Yellow cards</div>
+      </div>
+      <div class="stat-item-pro v2">
+        <div class="stat-value-pro red-pro v2"><span class="icon-red v2"></span>{{playerStateslist?.redCards}}</div>
+        <div class="stat-label-pro v2">Red cards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+}
