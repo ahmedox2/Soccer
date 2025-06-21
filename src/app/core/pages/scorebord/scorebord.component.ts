@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
+import { Scorebord } from '../../../shared/interface/scorebord';
 
 
 @Component({
@@ -12,22 +13,22 @@ import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard
 })
 export class ScorebordComponent {
     isLoading:boolean=false;
-    Newslist!:[];
-  constructor(private _NewsService:ScoreboardService) { }
+    Scoreboardlist!:Scorebord[];
+  constructor(private _ScoreboardService:ScoreboardService) { }
   ngOnInit(): void {
+      if( typeof localStorage!= 'undefined')
+      localStorage.setItem('currentpage',`/League/Scoreboard`);
+      this.getscore();
+    }
 
 
-  this.getallproducts();
-
-  }
-
-
-    getallproducts()
+  getscore()
   {
   this.isLoading=true;
-    this._NewsService.getscore().subscribe({
+    this._ScoreboardService.getscore().subscribe({
       next : res =>{
-        this.Newslist = res;
+        this.Scoreboardlist = res;
+         console.log(this.Scoreboardlist);
         this.isLoading=false;
       },
       error : err =>{

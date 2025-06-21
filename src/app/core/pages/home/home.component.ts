@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
 import { AuthService } from '../../../shared/service/Auth/Auth.service';
+import { Scorebord } from '../../../shared/interface/scorebord';
 
 @Component({
   selector: 'app-home',
@@ -15,12 +15,12 @@ import { AuthService } from '../../../shared/service/Auth/Auth.service';
 
 export class HomeComponent {
     isLoading:boolean=false;
-    Newslist!:[];
+    Scoreboardlist!:Scorebord[];
   isLogin : boolean = false;
 
   ngOnInit(): void {
-
-
+          if( typeof localStorage!= 'undefined')
+      localStorage.setItem('currentpage',`/Home`);
     this._AuthService.userData.subscribe(() => {
       if(this._AuthService.userData.getValue() != null) {
         this.isLogin = true;
@@ -29,19 +29,16 @@ export class HomeComponent {
         this.isLogin = false;
       }
     })
-
-
-  this.getallproducts();
+this.getscore();
 
   }
-
-    getallproducts()
+ getscore()
   {
   this.isLoading=true;
-    this._NewsService.getscore().subscribe({
+    this._ScoreboardService.getscore().subscribe({
       next : res =>{
-        this.Newslist = res;
-        console.log(this.Newslist)
+        this.Scoreboardlist = res;
+         console.log(this.Scoreboardlist);
         this.isLoading=false;
       },
       error : err =>{
@@ -268,13 +265,12 @@ isMobile = false;
 //   this.checkScreenSize();
 //   window.addEventListener('resize', this.checkScreenSize.bind(this));
 // }
-constructor(private _NewsService:ScoreboardService ,public _AuthService:AuthService) {
+constructor(private _ScoreboardService:ScoreboardService ,public _AuthService:AuthService) {
   if (typeof window !== 'undefined') {
     this.checkScreenSize();
     window.addEventListener('resize', this.checkScreenSize.bind(this));
   }
-     if( typeof localStorage!= 'undefined')
-   localStorage.setItem('currentpage','/Home')
+
 
 }
 

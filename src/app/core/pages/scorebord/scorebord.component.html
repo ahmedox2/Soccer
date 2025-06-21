@@ -1,4 +1,4 @@
-<!-- <div class="main-container">
+<div class="main-container">
   <div class="league-table-wrapper">
     <table class="league-table">
             <thead>
@@ -18,22 +18,22 @@
             <tbody>
 
 
-        <tr *ngFor="let team of Newslist; let i = index" [ngClass]="'rank-' + (i + 1)">
+        <tr *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)">
           <td class="position-cell">
             <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
             <span class="pos-number">{{team.position}}</span>
           </td>
           <td class="team-column">
               <div class="team-container">
-                  <img [src]="team.team.crest" [alt]="team.team.name">
-                    <span class="team-name">{{team.team.name}}</span>
+                  <img [src]="team.club.logo" [alt]="team.club.name">
+                    <span class="team-name">{{team.club.name}}</span>
                   </div>
                 </td>
 
-                <td class="text-center">{{team.playedGames}}</td>
-                <td class="text-center hide-mobile">{{team.won}}</td>
-                <td class="text-center hide-mobile">{{team.draw}}</td>
-                <td class="text-center hide-mobile">{{team.lost}}</td>
+                <td class="text-center">{{team.played}}</td>
+                <td class="text-center hide-mobile">{{team.wins}}</td>
+                <td class="text-center hide-mobile">{{team.draws}}</td>
+                <td class="text-center hide-mobile">{{team.losses}}</td>
                 <td class="text-center hide-mobile">{{team.goalsFor}}-{{team.goalsAgainst}}</td>
                 <td class="text-center">{{team.goalDifference}}</td>
                 <td class="text-center"><strong>{{team.points}}</strong></td>
@@ -51,4 +51,4 @@
       <span class="legend-box rl"></span> Relegation
     </div>
   </div>
-</div> -->
+</div>

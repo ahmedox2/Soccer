@@ -2,7 +2,7 @@
   <div class="main-container">
     <!-- جدول الدوري -->
     <div class="left-section">
-      <!-- <table class="league-table">
+      <table class="league-table">
         <thead>
             <tr>
               <th class="text-center col-pos" style="width: 50px">Pos</th>
@@ -19,22 +19,22 @@
           <tbody>
 
 
-            <tr *ngFor="let team of Newslist; let i = index" [ngClass]="'rank-' + (i + 1)">
+            <tr *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)">
               <td class="position-cell col-pos">
                 <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
                 <span class="pos-number">{{team.position}}</span>
               </td>
               <td class="team-column col-team">
                   <div class="team-container">
-                      <img [src]="team.team.crest" [alt]="team.team.shortName">
-                      <span>{{team.team.name}}</span>
+                      <img [src]="team.club.logo" [alt]="team.club.name">
+                      <span>{{team.club.name}}</span>
                   </div>
               </td>
 
-              <td class="text-center col-mp">{{team.playedGames}}</td>
-              <td class="text-center col-w">{{team.won}}</td>
-              <td class="text-center col-d">{{team.draw}}</td>
-              <td class="text-center col-l">{{team.lost}}</td>
+              <td class="text-center col-mp">{{team.played}}</td>
+              <td class="text-center col-w">{{team.wins}}</td>
+              <td class="text-center col-d">{{team.draws}}</td>
+              <td class="text-center col-l">{{team.losses}}</td>
               <td class="text-center col-gfga">{{team.goalsFor}}-{{team.goalsAgainst}}</td>
               <td class="text-center col-gd">{{team.goalDifference}}</td>
               <td class="text-center col-pts"><strong>{{team.points}}</strong></td>
@@ -44,7 +44,7 @@
 
 
           </tbody>
-      </table> -->
+      </table>
       <div class="table-legend">
         <span class="legend-item"><span class="legend-color cl"></span> Champions League</span>
         <span class="legend-item"><span class="legend-color el"></span> Europa League</span>

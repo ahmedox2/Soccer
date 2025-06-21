@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet ,RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -10,6 +10,10 @@ import { RouterOutlet ,RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './League.component.html',
   styleUrl: './League.component.scss'
 })
-export class LeagueComponent {
+export class LeagueComponent implements OnInit {
+  ngOnInit(): void {
+      if( typeof localStorage!= 'undefined')
+      localStorage.setItem('currentpage',`/League/Scoreboard`);
 
+    }
 }
