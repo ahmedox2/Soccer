@@ -18,7 +18,8 @@
             <tbody>
 
 
-        <tr *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)">
+        <tr  *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)">
+
           <td class="position-cell">
             <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
             <span class="pos-number">{{team.position}}</span>
@@ -39,7 +40,7 @@
                 <td class="text-center"><strong>{{team.points}}</strong></td>
 
 
-
+            
               </tr>
 
 
